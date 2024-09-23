@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="newnavbes.NewPage1"
+             Title="NewPage1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Верхняя половина -->
+            <RowDefinition Height="*" />
+            <!-- Нижняя половина -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Пустое пространство, первая строка -->
+        <StackLayout Grid.Row="0">
+         
+                <!-- WebView для отображения карты -->
+                <WebView x:Name="mapView"
+             VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand" />
+
+                <!-- Панель с кнопками -->
+            <StackLayout VerticalOptions="End" HorizontalOptions="Center" Padding="10" Spacing="10" Orientation="Horizontal">
+
+                <!-- Кнопка выбора точки отправления -->
+                <Button Text="Откуда" Clicked="OnSelectStartPoint"
+                BackgroundColor="LightGreen" TextColor="White" FontSize="14" WidthRequest="80" HeightRequest="80"
+                CornerRadius="40" />
+
+                <!-- Кнопка выбора точки назначения -->
+                <Button Text="Куда" Clicked="OnSelectEndPoint"
+                BackgroundColor="Orange" TextColor="White" FontSize="14" WidthRequest="80" HeightRequest="80"
+                CornerRadius="40" />
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <!-- Основное содержимое на нижней половине экрана -->
+        <Grid Grid.Row="1" Padding="20">
+            <!-- Canvas для рисования маршрута -->
+            <GraphicsView x:Name="RouteCanvas"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center"
+                          WidthRequest="300"
+                          HeightRequest="400"
+                          Drawable="{Binding RouteDrawable}" />
+
+            <!-- Кнопки для переключения этажей -->
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="End"
+                         VerticalOptions="Center"
+                         Padding="10"
+                         Spacing="15">
+
+                <!-- Оформление кнопок -->
+                <Button Text="Этаж 1"
+                        Clicked="OnFloorButtonClicked"
+                        CommandParameter="1"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        WidthRequest="120"
+                        FontAttributes="Bold"
+                       />
+
+                <Button Text="Этаж 2"
+                        Clicked="OnFloorButtonClicked"
+                        CommandParameter="2"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        WidthRequest="120"
+                        FontAttributes="Bold"
+                        />
+
+                <Button Text="Этаж 3"
+                        Clicked="OnFloorButtonClicked"
+                        CommandParameter="3"
+                        BackgroundColor="#FF9800"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        WidthRequest="120"
+                        FontAttributes="Bold"
+                       />
+
+                <Button Text="Этаж 4"
+                        Clicked="OnFloorButtonClicked"
+                        CommandParameter="4"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        WidthRequest="120"
+                        FontAttributes="Bold"
+                       />
+
+                <Button Text="Этаж 5"
+                        Clicked="OnFloorButtonClicked"
+                        CommandParameter="5"
+                        BackgroundColor="#9C27B0"
+                        TextColor="White"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        WidthRequest="120"
+                        FontAttributes="Bold"
+                        />
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
